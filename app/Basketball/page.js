@@ -2,17 +2,18 @@
 
 import Filter from "@/components/Filter/filter";
 import Image from "next/image";
-import Star from "../public/FilterIcons/StarIcon.svg";
-import Filterfill from "../public/FilterIcons/filterfill.svg";
-import Addbannder1 from "../public/Addbanner/Addbanner1.png";
-import Ellipse1 from "../public/Addbanner/Ellipse1.svg";
-import Ellipse2 from "../public/Addbanner/Ellipse2.png";
-import livetv from "../public/Addbanner/livetv.svg";
+import Star from "../../public/FilterIcons/StarIcon.svg";
+import Filterfill from "../../public/FilterIcons/filterfill.svg";
+import Addbannder1 from "../../public/Addbanner/Addbanner1.png";
+import Ellipse1 from "../../public/Addbanner/Ellipse1.svg";
+import Ellipse2 from "../../public/Addbanner/Ellipse2.png";
+import livetv from "../../public/Addbanner/livetv.svg";
 import { useRouter } from "next/navigation";
-import SrcIcon from "../public/FilterIcons/srceicon.svg";
+import SrcIcon from "../../public/FilterIcons/srceicon.svg";
 import LatestNews from "@/components/LatestNews/LatestNews";
 import HotLive from "@/components/HotLive/HotLive";
 import MatchLive from "@/components/MatchLive/MatchLive";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const router = useRouter();
@@ -20,6 +21,28 @@ export default function Home() {
     console.log("|Cliked....");
     router.push("/LiveStreaming");
   };
+  const [matches, setMatches] = useState([]);
+
+  useEffect(() => {
+    const fetchMatches = async () => {
+      try {
+        const response = await fetch("http://127.0.0.1:8000/api/matches/");
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+        // Filter matches where sport_type is "Basketball"
+        const basketballMatches = data.filter(
+          (match) => match.sport_type === "Basketball"
+        );
+        setMatches(basketballMatches);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchMatches();
+  }, []);
   return (
     <>
       <div className=" w-full h-full flex justify-center my-3  ">
@@ -50,15 +73,16 @@ export default function Home() {
               <h1 className=" text-base  ">T1 League</h1>
             </div>
             {/* starting compy */}
-            <MatchLive
-              vedioSrc={
-                "https://cph-p2p-msl.akamaized.net/hls/live/2000341/test/master.m3u8"
-              }
-            />
-            {/* starting compy */}
-            <MatchLive
-              vedioSrc={"https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"}
-            />
+            {matches.map((match) => (
+              <MatchLive
+                key={match.id}
+                vedioSrc={match.m3u8_link}
+                team1Name={match.team1_name}
+                team1Image={match.team1_image}
+                team2Name={match.team2_name}
+                team2Image={match.team2_image}
+              />
+            ))}
           </div>
           <div className=" w-1/3 flex flex-col gap-y-4 ">
             <div className=" w-[450px] rounded-md bg-primary-color p-2   ">
