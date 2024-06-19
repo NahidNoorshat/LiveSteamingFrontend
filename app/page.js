@@ -1,6 +1,6 @@
 "use client";
 
-import Filter from "@/components/Filter/Filter";
+import Filter from "@/components/Filter/filter";
 import Image from "next/image";
 import Star from "../public/FilterIcons/StarIcon.svg";
 import Filterfill from "../public/FilterIcons/filterfill.svg";
