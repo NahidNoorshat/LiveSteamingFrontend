@@ -1,5 +1,4 @@
-import { withCloudflarePages } from "@cloudflare/next-on-pages";
-
+import withCloudflarePages from "@cloudflare/next-on-pages";
 /** @type {import('next').NextConfig} */
 const nextConfig = withCloudflarePages({
   reactStrictMode: true,
