@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["127.0.0.1"], // Add your domain here for localhost
+    domains: ["mcdonalds.yourlile.tech"], // Correct domain name
   },
   experimental: {
     missingSuspenseWithCSRBailout: false,
