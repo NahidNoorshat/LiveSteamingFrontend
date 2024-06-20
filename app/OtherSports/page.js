@@ -26,7 +26,7 @@ export default function Home() {
   useEffect(() => {
     const fetchMatches = async () => {
       try {
-        const response = await fetch("http://91.219.237.46:8000/api/matches/");
+        const response = await fetch("http://91.219.237.46/api/matches/");
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
