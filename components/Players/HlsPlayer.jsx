@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef } from "react";
 import Hls from "hls.js";
+import { FaTelegram, FaSquareWhatsapp } from "react-icons/fa6";
 
 const HlsPlayer = ({ src }) => {
   const videoRef = useRef(null);
@@ -44,6 +45,14 @@ const HlsPlayer = ({ src }) => {
       </div>
       <div className="  w-full flex items-center justify-center mt-9  ">
         <video ref={videoRef} controls className=" w-full h-full max-w-5xl " />
+      </div>
+      <div className=" flex w-full justify-center gap-7 items-center mt-6">
+        <div className=" bg-primary-color p-2  overflow-hidden rounded-md ">
+          <FaTelegram className=" w-16 h-16  " />
+        </div>
+        <div className=" bg-primary-color p-2  overflow-hidden rounded-md ">
+          <FaSquareWhatsapp className=" w-16 h-16  " />
+        </div>
       </div>
     </>
   );

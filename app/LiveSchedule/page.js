@@ -43,8 +43,8 @@ export default function Home() {
   return (
     <>
       <div className=" w-full h-full flex justify-center my-3  ">
-        <div className=" w-full max-w-7xl flex h-full  ">
-          <div className=" w-2/3  flex flex-col gap-2  ">
+        <div className=" w-full max-w-7xl flex flex-col md:flex-row h-full gap-y-3  ">
+          <div className=" w-full md:w-2/3  flex flex-col gap-2 px-3  ">
             <div className=" flex justify-around ">
               <Filter title={"All"} />
               <Filter title={"Live"} />
@@ -52,21 +52,21 @@ export default function Home() {
               <Filter Icons={Filterfill} />
               <Filter />
             </div>
-            <div className=" w-full rounded-md my-2 mx-2 relative  ">
+            <div className=" w-full rounded-md my-2  relative  ">
               <Image src={Addbannder1} className=" w-[835px] " />
               <div className=" absolute top-2 left-3 bg-white rounded-md flex items-center justify-center text-black px-2  ">
                 <h1>ad</h1>
               </div>
             </div>
-            <div className=" w-[835px] bg-secondary-color px-2 flex items-center mx-2 gap-3 rounded-md py-1  ">
+            <div className=" w-full bg-secondary-color px-2 flex items-center gap-3 rounded-md py-1  ">
               <Image src={Ellipse1} />
               <h1 className=" text-base  ">Live Match Today</h1>
             </div>
-            <div className=" w-[835px] bg-secondary-color px-2 flex items-center mx-2 gap-3 rounded-md py-1  ">
+            <div className=" w-full bg-secondary-color px-2 flex items-center gap-3 rounded-md py-1  ">
               <Image src={Star} className=" w-[24px] h-[24px] " />
               <h1 className=" text-base  ">Badminton</h1>
             </div>
-            <div className=" w-[835px] bg-secondary-color px-2 flex items-center mx-2 gap-3 rounded-md py-1  ">
+            <div className=" w-full bg-secondary-color px-2 flex items-center gap-3 rounded-md py-1  ">
               <h1 className=" text-base  ">T1 League</h1>
             </div>
             {/* starting compy */}
@@ -81,14 +81,14 @@ export default function Home() {
               />
             ))}
           </div>
-          <div className=" w-1/3 flex flex-col gap-y-4 ">
-            <div className=" w-[450px] rounded-md bg-primary-color p-2   ">
+          <div className=" w-full md:w-1/3 flex flex-col gap-y-4 px-2 ">
+            <div className=" w-full rounded-md bg-primary-color p-2   ">
               <div className=" flex w-full bg-secondary-color rounded-md p-1 ">
                 <Image src={SrcIcon} />
                 <input className=" w-full bg-secondary-color outline-none   " />
               </div>
             </div>
-            <div className=" w-[450px] rounded-md bg-primary-color p-2 flex flex-col gap-3 ">
+            <div className=" w-full rounded-md bg-primary-color p-2 flex flex-col gap-3 ">
               <div className=" flex  ">
                 <div className=" w-[17px] border-l-4 border-[#00FFCE]   "></div>
                 <h1>Latest News</h1>
@@ -100,7 +100,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className=" w-[450px] rounded-md bg-primary-color p-2 flex flex-col gap-3 ">
+            <div className=" w-full rounded-md bg-primary-color p-2 flex flex-col gap-3 ">
               <div className=" flex  ">
                 <div className=" w-[17px] border-l-4 border-[#00FFCE]   "></div>
                 <h1>Hot Live Sports</h1>

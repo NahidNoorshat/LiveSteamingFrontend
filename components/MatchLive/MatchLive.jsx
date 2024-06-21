@@ -23,7 +23,7 @@ const MatchLive = ({
     <>
       <div
         onClick={handleclick}
-        className=" bg-primary-color w-[835px] mx-2 flex items-center justify-between rounded-md px-2 cursor-pointer "
+        className=" bg-primary-color w-full flex items-center justify-between rounded-md px-2 cursor-pointer "
       >
         <div className=" flex items-center gap-3  p-2">
           <Image src={Star} />
