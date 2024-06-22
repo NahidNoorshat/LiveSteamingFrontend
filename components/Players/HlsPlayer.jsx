@@ -1,25 +1,45 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Hls from "hls.js";
 import { FaTelegram, FaSquareWhatsapp } from "react-icons/fa6";
 
 const HlsPlayer = ({ src }) => {
   const videoRef = useRef(null);
+  const [videoSrc, setVideoSrc] = useState("");
 
   useEffect(() => {
-    if (videoRef.current) {
+    const fetchVideoSrc = () => {
+      var request = new XMLHttpRequest();
+      request.open(
+        "GET",
+        "https://thunderbolt-40gbps.com/play/PnQ3VmHsRVzM_QWgtl7rxhFtj8cY6EgYT5e3b_XXu60ml9ERyMtLp_YVbls3o-57",
+        true
+      );
+      request.onreadystatechange = function () {
+        if (request.readyState === 4 && request.status === 200) {
+          setVideoSrc(request.responseURL);
+        }
+      };
+      request.send();
+    };
+
+    fetchVideoSrc();
+  }, []);
+
+  useEffect(() => {
+    if (videoRef.current && videoSrc) {
       const video = videoRef.current;
       let hls;
 
       if (Hls.isSupported()) {
         hls = new Hls();
-        hls.loadSource(src);
+        hls.loadSource(videoSrc);
         hls.attachMedia(video);
         hls.on(Hls.Events.MANIFEST_PARSED, () => {
           video.play();
         });
       } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
-        video.src = src;
+        video.src = videoSrc;
         video.addEventListener("loadedmetadata", () => {
           video.play();
         });
@@ -31,7 +51,7 @@ const HlsPlayer = ({ src }) => {
         }
       };
     }
-  }, [src]);
+  }, [videoSrc]);
 
   return (
     <>
