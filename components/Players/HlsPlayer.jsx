@@ -2,6 +2,7 @@
 import { useEffect, useRef } from "react";
 import Hls from "hls.js";
 import { FaTelegram, FaSquareWhatsapp } from "react-icons/fa6";
+import "./hlsstyle.css";
 
 const HlsPlayer = ({ src }) => {
   const videoRef = useRef(null);
