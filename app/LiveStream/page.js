@@ -13,6 +13,7 @@ import SrcIcon from "../../public/FilterIcons/srceicon.svg";
 import LatestNews from "@/components/LatestNews/LatestNews";
 import HotLive from "@/components/HotLive/HotLive";
 import MatchLive from "@/components/MatchLive/MatchLive";
+import MatchSchedule from "@/components/MatchSchedule/MatchSchedule";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -115,6 +116,12 @@ export default function Home() {
                   <HotLive />
                 </div>
               </div>
+            </div>
+            <div className="">
+              <MatchSchedule />
+              <MatchSchedule />
+              <MatchSchedule />
+              <MatchSchedule />
             </div>
           </div>
         </div>

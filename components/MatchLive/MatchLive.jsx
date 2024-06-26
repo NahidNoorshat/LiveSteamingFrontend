@@ -30,13 +30,23 @@ const MatchLive = ({
           <div className=" flex flex-col items-center gap-3 ">
             <div className=" flex items-center gap-2 ">
               <div className=" w-[22px] h-[22px] rounded-full flex items-center   ">
-                <Image src={team1Image} width={22} height={22} />
+                <Image
+                  src={team1Image}
+                  width={22}
+                  height={22}
+                  className="object-cover"
+                />
               </div>
               <h1 className=" text-sm">{team1Name}</h1>
             </div>
             <div className=" flex items-center gap-2 ">
               <div className=" w-[22px] h-[22px] rounded-full flex items-center   ">
-                <Image src={team2Image} width={22} height={22} />
+                <Image
+                  src={team2Image}
+                  width={22}
+                  height={22}
+                  className="object-cover"
+                />
               </div>
               <h1 className=" text-sm  ">{team2Name}</h1>
             </div>

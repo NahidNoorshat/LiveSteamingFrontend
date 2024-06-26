@@ -22,7 +22,7 @@ const LiveStreaming = () => {
     return <div>Loading...</div>;
   }
 
-  return <HlsPlayer src={vedioSrc} />;
+  return <HlsPlayer src={vedioSrc} startTime={1719363600} />;
 };
 
 export default LiveStreaming;
