@@ -150,6 +150,11 @@ const HlsPlayer = ({ src, startTime }) => {
     };
 
     fetchFixtures();
+    // Set up an interval to fetch match details periodically
+    const interval = setInterval(fetchFixtures, 60000); // Fetch every 60 seconds
+
+    // Clean up the interval on component unmount
+    return () => clearInterval(interval);
   }, []);
 
   return (
